@@ -6,8 +6,8 @@ import RefsContext from '../context/RefsContext.jsx';
 const About = () => {
 
 const [isHovered, setIsHovered ] = useState(false);
-const visible = 'transition-opacity ease-in-out duration-1000 delay-100 h-[550px] ml-[295px] rounded-xl opacity-100 absolute top-10 left-0';
-const invisible = 'transition-opacity ease-in-out duration-1000 delay-100 h-[550px] ml-[295px] rounded-xl opacity-0 absolute top-10 left-0';
+const visible = 'transition-opacity ease-in-out duration-1000 delay-100 h-[550px] ml-[250px] rounded-xl opacity-100 absolute top-10 left-0';
+const invisible = 'transition-opacity ease-in-out duration-1000 delay-100 h-[550px] ml-[250px] rounded-xl opacity-0 absolute top-10 left-0';
 const aboutStyles = `h-[650px] w-[95%] ml-[2.5%] flex items-center justify-around p-1 pl-[200px] 
 					 font-comorant border border-2 border-[#735534] rounded-xl cursor-pointer transition-colors ease-in-out duration-1000 delay-100 transition-[border] ease-in-out duration-1000 delay-100 `;
 
@@ -16,7 +16,7 @@ const { aboutRef } = useContext(RefsContext);
 
 	return (
 		<>
-			<div ref={aboutRef} className={`h-[650px] w-[95%] mt-[100px] ml-[2.5%] flex items-center justify-around p-1 pl-[200px] font-comorant 
+			<div ref={aboutRef} className={`h-[650px] w-[80%] mt-[100px] ml-[10%] flex items-center justify-around p-2 pl-[200px] font-comorant 
 				  border border-2 border-[#735534] rounded-xl cursor-pointer transition-colors ease-in-out duration-1000 delay-100 
 				  ${isHovered ? ' bg-orange-100 border-orange-50 ' : 'bg-orange-200'}`}
 				 onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
@@ -29,7 +29,7 @@ const { aboutRef } = useContext(RefsContext);
 					</div>
 				</div>
 				<div className='w-[50%] h-[100%] relative'>
-					<img src='/sepia-profile.png' alt= '' className='h-[550px] ml-[295px] rounded-xl absolute top-10 left-0'/>
+					<img src='/sepia-profile.png' alt= '' className='h-[550px] ml-[250px] rounded-xl absolute top-10 left-0'/>
 					{isHovered ? <img src='/profile.jpg' alt='' className={visible}/> : <img src='/profile.jpg' alt='' className={invisible}/> }
 				</div>
 			</div>	

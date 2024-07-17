@@ -3,8 +3,6 @@ import { useState, useEffect, useRef, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight, faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 import RefsContext from '../context/RefsContext.jsx';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import './ImageSlider.css'; 
 
 
 const Illustrations = () => {
@@ -20,14 +18,17 @@ const Illustrations = () => {
 	//useRef to allow access to setInterval for image autoslider 
 	const intervalRef = useRef(null);
 
+	//useRef to create a reference for as a prop for TransitionGroup / CSSTransition 
+	const imageRef = useRef(null)
+
 	const images = [
 			{id: 1, name: 'Two of Swords', link: '/tarot1.jpg', sepia: 'sepia-tarot1.png'},
-			{id: 2, name: 'The Fool', link: '/tarot2.jpg'},
-			{id: 3, name: 'Three of Cups', link: '/tarot3.jpg'},
-			{id: 4, name: 'The High Priestess', link: '/tarot4.jpg'},
-			{id: 5, name: 'The Sun', link: '/tarot5.jpg'},
-			{id: 6, name: 'Lakshmi', link: '/goddess1.jpg'},
-			{id: 7, name: 'Greys', link: '/mystic-image1.jpg'}
+			{id: 2, name: 'The Fool', link: '/tarot2.jpg', sepia: 'sepia-tarot2.png'},
+			{id: 3, name: 'Three of Cups', link: '/tarot3.jpg', sepia: 'sepia-tarot3.png'},
+			{id: 4, name: 'The High Priestess', link: '/tarot4.jpg', sepia: 'sepia-tarot4.png'},
+			{id: 5, name: 'The Sun', link: '/tarot5.jpg', sepia: 'sepia-tarot5.png'},
+			{id: 6, name: 'Lakshmi', link: '/goddess1.jpg', sepia: 'sepia-goddess1.png'},
+			{id: 7, name: 'Greys', link: '/mystic-image1.jpg', sepia: 'sepia-mystic.png'}
 		];
 
 	const handleNextImage = () => {
@@ -36,7 +37,7 @@ const Illustrations = () => {
 		} else {
 			imageId.current ++;
 		}	
-		setCurrentImage(images.filter((i) => i.id === imageId.current).map((im) => im.link));
+		setCurrentImage(images.find((i) => i.id === imageId.current).link);
 		resetAutoSlider();		
 	}
 
@@ -46,7 +47,7 @@ const Illustrations = () => {
 		} else {
 			imageId.current --;
 		}	
-		setCurrentImage(images.filter((i) => i.id === imageId.current).map((im) => im.link));
+		setCurrentImage(images.find((i) => i.id === imageId.current).link);
 		resetAutoSlider();
 	}
 
@@ -68,14 +69,21 @@ const Illustrations = () => {
 	}
 
 
+
 	return (
 		<>
 			<div ref={illustrationsRef} className='h-[700px] w-[100%] mt-[110px] mb-[110px] bg-orange-200 flex items-center justify-center'
 				 onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => { setIsHovered(false)}}>
 				<div className='h-[630px] w-[90%] bg-orange-200 flex items-center justify-around'>
 					<FontAwesomeIcon icon={faChevronLeft}  className='text-5xl text-[#735534] hover:text-orange-100 cursor-pointer'
-									 onClick={() => handlePrevImage()}/>
-					<img src={currentImage} className='h-[100%] rounded-3xl select-none' />
+									 onClick={() => handlePrevImage()}/>		
+						<div className='h-[100%] w-[60%] bg-orange-200 relative'>
+							{images.map(image => 
+								<img key={image.id} src={isHovered ? image.link : image.sepia} 
+								className={ imageId.current === image.id ? 'transition-opacity ease-in-out duration-1000 absolute top-4 left-[30%] h-[650px] rounded-3xl select-none' 
+								: 'transition-opacity ease-in-out duration-1000 absolute top-4 left-[30%] h-[650px] rounded-3xl select-none opacity-0' }/>
+							)}
+						</div>														
 					<FontAwesomeIcon icon={faChevronRight} className='text-5xl text-[#735534] hover:text-orange-100 cursor-pointer'
 									 onClick={() => handleNextImage()}/>
 				</div>
@@ -85,3 +93,4 @@ const Illustrations = () => {
 }
 
 export default Illustrations
+
