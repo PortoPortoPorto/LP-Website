@@ -6,11 +6,10 @@ import { Link } from 'react-router-dom';
 
 const Wands = () => {
 
-const [isHovered1, setIsHovered1] = useState(false);
-const [isHovered2, setIsHovered2] = useState(false);
-const [isHovered3, setIsHovered3] = useState(false);
-const visible = 'absolute top-0 left-0 transition-all ease-in-out duration-1000 delay-100 opacity-100 rounded-md cursor-pointer h-[450px] ring ring-orange-200'
-const invisible = ' absolute top-0 left-0 transition-all ease-in-out duration-1000 delay-100 opacity-0 rounded-md  cursor-pointer h-[450px]'
+const [isHovered, setIsHovered] = useState(false);
+const visible = 'transition-opacity ease-in-out duration-1000 delay-100 h-[500px] rounded-md absolute top-0 left-[2%] opacity-100 outline outline-4 outline-orange-100 shadow-lg '
+const invisible = 'transition-opacity ease-in-out duration-1000 delay-100 h-[500px] rounded-md absolute top-0 left-[2%] opacity-0 outline outline-4 outline-orange-200 shadow-lg '
+
 
 //global reference to component for scrolling purposes
 const { wandsRef } = useContext(RefsContext);
@@ -18,28 +17,14 @@ const { wandsRef } = useContext(RefsContext);
 
 	return (
 		<>
-			<div ref={wandsRef} className = 'h-[750px] w-[100%] bg-black flex-col items-center justify-center'>	
-				<div className= 'flex items-center justify-center'>
-					<h1 className= 'p-7 text-4xl italic text-orange-200 border-b border-orange-200'>Singular Wands</h1>
-				</div>	
-				<div className=' font-comorant h-[550px] w-[100%] bg-black flex items-start pt-16 justify-between p-1 ml-10'>
-					<div className='relative w-[30%]' onMouseOver={() => setIsHovered1(true)} onMouseLeave={() => setIsHovered1(false)}>
-						<img src='/sepia-wands.png' alt='wands' className= 'rounded-md  cursor-pointer h-[450px] '/> 
-						<img src='/wands.jpg' alt='wands' className={isHovered1 ? visible : invisible}/>
-					</div>
-					<div className='relative w-[30%]' onMouseOver={() => setIsHovered3(true)} onMouseLeave={() => setIsHovered3(false)}>
-						<img src='/sepia-wands3.png' alt='wands' className= 'rounded-md  cursor-pointer h-[450px] '/> 
-						<img src='/wands3.jpg' alt='wands' className={isHovered3 ? visible : invisible}/>
-					</div>
-					<div className='relative w-[30%]' onMouseOver={() => setIsHovered2(true)} onMouseLeave={() => setIsHovered2(false)}>
-						<img src='/sepia-wands2.png' alt='wands' className= 'rounded-md  cursor-pointer h-[450px] '/> 
-						<img src='/wands2.jpg' alt='wands' className={isHovered2 ? visible : invisible}/>
-					</div>
-				</div>
-				<div className= 'p-2 flex items-center justify-center'>
-					<button className= ' transition ease-in-out duration-500 text-3xl italic text-[#735534] hover:text-orange-100'>
-					<Link to="/Store">More..</Link></button>
-				</div>
+			<div ref={wandsRef} className = 'font-comorant h-[500px] w-[full] m-[100px] bg-orange-200 relative rounded-md cursor-pointer'
+		 	 onMouseEnter={() => setIsHovered(true)}
+		 	 onMouseLeave={() => setIsHovered(false)}>
+		 	 	<Link to={'/store'}>
+		 	 		 <img className= 'h-[500px] rounded-md absolute top-0 left-[2%] opacity-100 shadow-lg' src= './public/sepia-wands-banner.png'/> 
+				 {isHovered ? <img className={visible}src='./public/wands-banner.png'/> :			 			 
+				 			  <img className={invisible}src='./public/wands-banner.png'/>}					
+				</Link>
 			</div>			
 		</>
 	)

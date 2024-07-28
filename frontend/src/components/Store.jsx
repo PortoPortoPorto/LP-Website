@@ -1,72 +1,82 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faSun} from '@fortawesome/free-solid-svg-icons';
+import {faEtsy} from '@fortawesome/free-brands-svg-icons';
 
 const Store = () => {
 
-	const [isHovered, setIsHovered ] = useState({1: false, 2: false, 3: false});
-
-
-	const wands = [
-		{ id: 1, 
-		  name: 'First Wand', 
-		  img: '/wands.jpg', 
-		  sepia: '/sepia-wands.png', 
-		  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget diam lacus.',
-		  price: 199},
-
-		{ id: 2, 
-		  name: 'Second Wand', 
-		  img: '/wands2.jpg', 
-		  sepia: '/sepia-wands2.png', 
-		  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget diam lacus.',
-		  price: 175},
-
-		{ id: 3, 
-		  name: 'Third Wand', 
-		  img: '/wands3.jpg', 
-		  sepia: '/sepia-wands3.png', 
-		  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget diam lacus.',
-		  price: 240}
-	];
-
-	//function to dynamically update state of the wands object. Takes id and a boolean
-	const alterState = (id, boolean) => {
-		setIsHovered((prevState) => ({
-			...prevState,
-			[id]: boolean
-		}));
-		console.log(isHovered);
-	}
+const [isHovered, setIsHovered ] = useState(false);
 
 
 	return (
-		<>
-		  <div className='flex items-center justify-center p-5 text-2xl'>
-		 	 <Link to='/'><button className='w-[140px] p-2 border-2 border-orange-100 rounded-lg'>Back</button></Link>
-		  </div>
-		  <div className='m-[5%] mt-[30px] h-[1200px] border-[5px] border-[#241201] bg-black rounded-3xl flex flex-col items-center justify-start'>
-				<div className='h-[100px] w-[15%] flex items-center justify-center text-4xl italic text-orange-200 border-b border-orange-200'>WANDS</div>
-				<p className='italic text-2xl text-orange-200 p-10 ml-10 mr-10'>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget diam lacus. Etiam maximus leo turpis.
-					 Etiam ullamcorper cursus nunc at lobortis. Sed porta, libero non luctus lacinia, massa lorem.
-				</p>
-				{wands.map(wand => <div className='h-[280px] w-[80%] ml-[10%] mr-[10%] mt-[15px] p-4 rounded-xl cursor-pointer hover:bg-orange-200
-									hover:text-black text-2xl italic text-orange-200 border-b border-orange-200 flex items-center justify-between'
-										key={wand.id} onMouseEnter={() => alterState(wand.id, true)} onMouseLeave={() => alterState(wand.id, false)}>
-										<h1>{wand.name}</h1>
-										<img src={wand.img} className='h-[200px] rounded-xl'/>
-										<div className='text-xl italic m-5 h-[250px] flex flex-col justify-start items-center'>
-											<h1 className='pt-[40px]'>{wand.description}</h1>
-											{isHovered[wand.id] === true ? <div className='text-3xl pt-[75px]'>Shop</div> : ''}
-										</div>
-	
-									</div>)}
+		<>	
+		  <div className='h-[100%] w-[100%] bg-stone-500 text-[#DCC5A4]'>	
+			<div className='h-[50px] w-[100%] flex items-center justify-center'>
+			</div>
+			<div className='w-[95%] m-[2.5%] h-[500px] flex items-start justify-center'>
+				<img src= './public/wands-banner.png' alt='' className=' rounded-md shadow-xl'/>
+			</div>
 
-		  </div>
+			<div className= ' m-[50px] mx-[6.6%] h-[650px] w-[1650px] shadow-xl rounded-md bg-custom-image-2 flex flex-col items-center'>
+				<div className= 'w-[300px] border-b-2 border-[#DCC5A4] flex items-center justify-center'>
+					<h1 className='p-4 text-3xl'>WRITE-UP HEADER</h1>
+				</div>
+				<div className='w-[100%] h-[550px] mt-2 flex items-between justify-around'>
+					<div className='w-[40%] h-[90%] p-[100px] flex items-center text-xl italic'>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin sapien vitae venenatis finibus. Duis vel.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin sapien vitae venenatis finibus. Duis vel.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin sapien vitae venenatis finibus. Duis vel.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sollicitudin sapien vitae venenatis finibus. Duis vel.</p>
+					</div>
+					<div className= 'w-[30%] p-2 flex items-center justify-center'>
+						<img src = './public/wands2.jpg' alt= '' className= 'h-[550px] rounded-3xl p-2'/>
+					</div>
+				</div>
+			</div>
+
+			<div className= ' m-[50px] mx-[6.6%] h-[650px] w-[1650px] shadow-xl rounded-md bg-custom-image-2 flex flex-col items-center'>
+				<div className= 'w-[300px] border-b-2 border-[#DCC5A4] flex items-center justify-center'>
+					<h1 className='p-4 text-3xl'>FEATURES HEADER</h1>
+				</div>
+				<div className='w-[100%] h-[550px] mt-2  flex items-between justify-around'>
+					<div className= 'w-[30%] p-2 flex items-center justify-center'>
+						<img src = './public/wands3.jpg' alt= 'wands3' className= 'h-[550px] rounded-3xl p-2'/>
+					</div>					
+					<div className='w-[50%] h-[90%] pl-[100px] flex items-center text-xl italic'>
+						<ul className= 'text-2xl'>
+							<li className= 'p-3'><FontAwesomeIcon icon={faSun} className='pr-3'/>Lorem ipsum dolor sit amet,</li>
+							<li className= 'p-3'><FontAwesomeIcon icon={faSun} className='pr-3'/>consectetur adipiscing elit</li>
+							<li className= 'p-3'><FontAwesomeIcon icon={faSun} className='pr-3'/>Praesent sollicitudin sapien vitae venenatis</li>
+							<li className= 'p-3'><FontAwesomeIcon icon={faSun} className='pr-3'/>Duis vel.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+
+			<div className= ' m-[50px] mx-[6.6%] h-[350px] w-[1650px] shadow-xl rounded-md bg-custom-image-1 flex flex-col items-center'>
+				<div className= 'w-[300px] border-b-2 border-[#DCC5A4] flex items-center justify-center'>
+					<h1 className='p-4 text-3xl'>Purchase</h1>
+				</div>
+				<div className='h-[200px] w-[100%] flex items-around justify-center'>
+					<div className='h-[200px] w-[350px] flex items-center justify-center p-4 m-7 cursor-pointer hover:text-[#ad9574]'>
+						<a href= 'https://www.amazon.com.au/Mystic-Martian-Oracle-Lisa-Porter/dp/192594655X' target="_blank" rel="noopener noreferrer" >
+							<FontAwesomeIcon icon={faEtsy} className='text-5xl'/>
+						</a>
+					</div>
+				</div>
+			</div>
+
+
+			<div className='h-[90px] w-[100%] flex items-center justify-center'>			
+				<Link to='/'><button className='w-[140px] p-2 text-xl border-2 bg-stone-500 border-[#DCC5A4] rounded-lg hover:bg-neutral-900
+		 	 		transition-all ease-in-out duration-1000 delay-100'>Back</button>
+		 		</Link>	
+			</div>
+		  </div>		
 		</>
 	)
 }
-
 export default Store
