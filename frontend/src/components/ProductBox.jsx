@@ -8,8 +8,8 @@ const ProductBox = ({name, image, bwImage, description, link}) => {
 const [isHovered, setIsHovered ] = useState(false);
 
 //classes for visual transitions (sepia -> color)
-const visible = 'transition-opacity ease-in-out duration-1000 delay-100 h-[550px] rounded-md absolute top-0 left-[7%] opacity-100 outline outline-4 outline-orange-100 shadow-lg '
-const invisible = 'transition-opacity ease-in-out duration-1000 delay-100 h-[550px] rounded-md absolute top-0 left-[7%] opacity-0 outline outline-4 outline-orange-200 shadow-lg '
+const visible = 'transition-all ease-in-out duration-1000 delay-100 h-[550px] rounded-md absolute top-0 left-[6.5%] opacity-100 outline outline-4 outline-orange-100 shadow-lg '
+const invisible = 'transition-all ease-in-out duration-1000 delay-100 h-[550px] rounded-md absolute top-0 left-[6.5%] opacity-0 outline outline-4 outline-orange-200 shadow-lg '
 
 //global reference to component for scrolling purposes
 const { productsRef } = useContext(RefsContext);
@@ -20,7 +20,7 @@ const { productsRef } = useContext(RefsContext);
 		 	 onMouseEnter={() => setIsHovered(true)}
 		 	 onMouseLeave={() => setIsHovered(false)}>
 			 <Link to={link}>
-				 <img className= 'h-[550px] rounded-md absolute top-0 left-[7%] opacity-100 shadow-lg' src={bwImage}/> 
+				 <img className= 'h-[550px] rounded-md absolute top-0 left-[6.5%] opacity-100 shadow-lg' src={bwImage}/> 
 				 {isHovered ? <img className={visible}src={image}/> :			 			 
 				 			  <img className={invisible}src={image}/>}
 			 </Link>

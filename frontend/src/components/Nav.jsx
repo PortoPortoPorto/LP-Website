@@ -16,16 +16,24 @@ const Nav = () => {
 	} = useContext(RefsContext);
 
 	const scrollToSection = (ref, off) => {
-		window.scrollTo({
-			top: ref.current.offsetTop - off,
-			behavior: 'smooth',
+		if(ref === '') {
+			window.scrollTo({
+				top:0,
+				behavior: 'smooth',
+			});
+		} else {
+			window.scrollTo({
+				top: ref.current.offsetTop - off,
+				behavior: 'smooth',
 		});
+		}
 	};
 
 	return (
 		<>
 			<div className='fixed top-0 left-0 h-[80px] w-[100%] bg-orange-200 flex justify-around items-center z-10 opacity-95'>
-				<div className='text-4xl flex justify-center font-semibold italic p-7 font-comorant'>Lisa Porter</div> 
+				<div className='text-4xl flex justify-center font-semibold italic p-7 font-comorant cursor-pointer'
+				     onClick={() => scrollToSection('', 0)}>Lisa Porter</div> 
 				<div className={navButton} onClick={() => scrollToSection(aboutRef, 100)}>ABOUT</div>
 				<div className={navButton} onClick={() => scrollToSection(productsRef, 1600)}>TAROT</div>
 				<div className={navButton} onClick={() => scrollToSection(productsRef, 850)}>ORACLE</div>

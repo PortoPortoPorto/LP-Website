@@ -12,8 +12,11 @@ const [isHovered, setIsHovered ] = useState(false);
 
 	return (
 		<>	
-		  <div className='h-[100%] w-[100%] bg-stone-500 text-[#DCC5A4]'>	
-			<div className='h-[50px] w-[100%] flex items-center justify-center'>
+		  <div className='h-[100%] w-[100%] bg-stone-500 text-[#DCC5A4]'>
+			<div className='h-[50px] w-[100%] flex items-center justify-center'>			
+				<Link to='/'><button className='w-[120px] mt-9 p-2 text-2xl border-2 border-[#877f7a] rounded-md hover:border-[#ad9574] hover:text-[#ad9574]
+		 	 		transition-all ease-in-out duration-1000 font-comorant'>HOME</button>
+		 		</Link>	
 			</div>
 			<div className='w-[95%] m-[2.5%] h-[500px] flex items-start justify-center'>
 				<img src= './public/wands-banner.png' alt='' className=' rounded-md shadow-xl'/>
@@ -63,7 +66,7 @@ const [isHovered, setIsHovered ] = useState(false);
 				<div className='h-[200px] w-[100%] flex items-around justify-center'>
 					<div className='h-[200px] w-[350px] flex items-center justify-center p-4 m-7 cursor-pointer hover:text-[#ad9574]'>
 						<a href= 'https://www.amazon.com.au/Mystic-Martian-Oracle-Lisa-Porter/dp/192594655X' target="_blank" rel="noopener noreferrer" >
-							<FontAwesomeIcon icon={faEtsy} className='text-5xl'/>
+							<FontAwesomeIcon icon={faEtsy} className='text-5xl transition-all ease-in-out duration-500'/>
 						</a>
 					</div>
 				</div>
@@ -71,8 +74,8 @@ const [isHovered, setIsHovered ] = useState(false);
 
 
 			<div className='h-[90px] w-[100%] flex items-center justify-center'>			
-				<Link to='/'><button className='w-[140px] p-2 text-xl border-2 bg-stone-500 border-[#DCC5A4] rounded-lg hover:bg-neutral-900
-		 	 		transition-all ease-in-out duration-1000 delay-100'>Back</button>
+				<Link to='/'><button className='w-[120px] p-2 text-2xl border-2 border-[#877f7a] rounded-md hover:border-[#ad9574] hover:text-[#ad9574]
+		 	 		transition-all ease-in-out duration-1000 font-comorant'>HOME</button>
 		 		</Link>	
 			</div>
 		  </div>		

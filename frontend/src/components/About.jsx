@@ -16,26 +16,26 @@ const { aboutRef } = useContext(RefsContext);
 
 	return (
 		<>
-			<div ref={aboutRef} className={`h-[650px] w-[80%] mt-[100px] ml-[10%] flex items-center justify-around p-2 pl-[200px] font-comorant 
+			<div ref={aboutRef} className={`h-[650px] w-[1500px] mt-[100px] ml-[11%] flex items-center justify-around p-2 pl-[150px] font-comorant 
 				  border border-2 border-[#735534] rounded-xl cursor-pointer transition-all ease-in-out duration-1000 delay-100 
 				  ${isHovered ? ' bg-orange-100 border-orange-50 shadow-xl ' : 'bg-orange-200'}`}
 				 onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-				<div className='w-[50%] h-[90%] text-[#735534] flex items-center'>
-					<div className='flex flex-col items-center'>	
-						<h1 className='p-10 pb-5 pt-0 text-4xl font-light'>Hi, I'm Lisa.</h1>
+				<div className='w-[55%] h-[90%] text-[#735534] flex items-center'>
+					<div className='flex flex-col items-start'>	
+						<h1 className=' ml-10 p-1 pb-5 pt-0 text-4xl font-light border-b-2 border-[#735534]'>Hi, I'm Lisa.</h1>
 						<p className='p-10 py-5 font-normal text-2xl leading-relaxed italic '>
-							I'm an illustrator, author of oracle decks and a wandmaker. </p>
-						<p className='p-10 py-2 font-normal text-xl leading-relaxed not-italic'>	
+							I'm a creator of oracle decks, an illustrator and a wandmaker. </p>
+						<p className='p-10 py-2 font-normal text-2xl leading-relaxed not-italic'>	
 							I was born in rural Western Australia and have lived in the Melbourne area for the past decade.
 						</p>
-						<p className='p-10 py-2 font-normal text-xl leading-relaxed not-italic'>	
+						<p className='p-10 py-2 font-normal text-2xl leading-relaxed not-italic'>	
 							I've worked with Rockpool Publishing and US Games Systems to share my oracle and tarot decks with the world. 
 						</p>
-						<p className='p-10 py-2 font-normal text-xl leading-relaxed not-italic'>
-							My creative endeavours extend beyond the enchanting universe of diviniation cards. I'm also a passionate wand-maker.
+						<p className='p-10 py-2 font-normal text-2xl leading-relaxed not-italic'>
+							My creative endeavours extend beyond the enchanting universe of diviniation cards. I'm also a passionate illustrator and wand-maker.
 						</p>
-						<p className='p-10 py-2 font-normal text-xl leading-relaxed not-italic'>
-							I'm inspired by life and hope to provide inspiritation to others through my work. 
+						<p className='p-10 py-2 font-normal text-2xl leading-relaxed not-italic'>
+						I'm inspired by life and hope to provide inspiritation to others through my work. 
 						</p>
 					</div>
 				</div>
