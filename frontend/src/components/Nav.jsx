@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import RefsContext from '../context/RefsContext.jsx';
 
 
-const navButton = 'font-comorant font-light h-[50px] w-[130px] bg-orange-200 border-b-2 border-orange-200 transition-all ease-in-out duration-500 hover:text-[#ad9574] hover:border-[#ad9574] flex items-center justify-center cursor-pointer text-xl text-[#735534]'
+const navButton = 'font-comorant font-light h-[50px] w-[130px] bg-orange-100 border-b-2 border-orange-100 transition-all ease-in-out duration-500 hover:text-[#ad9574] hover:border-[#ad9574] flex items-center justify-center cursor-pointer text-xl text-[#735534]'
 //Nav could be perpetually at the top of the screen, and cycle up or down to wherever the selected section lay 
 const Nav = () => {
 	
@@ -31,7 +31,7 @@ const Nav = () => {
 
 	return (
 		<>
-			<div className='fixed top-0 left-0 h-[80px] w-[100%] bg-orange-200 flex justify-around items-center z-10 opacity-95'>
+			<div className='fixed top-0 left-0 h-[80px] w-[100%] bg-orange-100 flex justify-around items-center z-10 opacity-95'>
 				<div className='text-4xl flex justify-center font-semibold italic p-7 font-comorant cursor-pointer'
 				     onClick={() => scrollToSection('', 0)}>Lisa Porter</div> 
 				<div className={navButton} onClick={() => scrollToSection(aboutRef, 100)}>ABOUT</div>

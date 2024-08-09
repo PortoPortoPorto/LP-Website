@@ -14,7 +14,7 @@ const invisible= 'transition-opacity ease-in-out duration-[1500ms] delay-100 abs
 
 	return (
 		<>
-			<div className=' font-comorant mt-[85px] h-[880px] w-[100%] bg-orange-200 relative cursor-pointer
+			<div className=' font-comorant mt-[80px] h-[880px] w-[100%] bg-orange-200 relative cursor-pointer
 							 transition-all ease-in-out duration-500'
 				 onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 				 <img src='./sepia-hero-art.png' className={visible}/>
